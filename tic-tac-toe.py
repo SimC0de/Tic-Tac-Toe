@@ -53,3 +53,5 @@ while choose_opponent:
         choose_opponent = False
     else:
         choose_opponent = input("Not a valid choice\nInput \"1\" to choose another player as an opponent...\nInput \"2\" to choose a computer as an opponent...\nInput \"3\" to to exit the program...\n")
+
+print("This is just a test")
