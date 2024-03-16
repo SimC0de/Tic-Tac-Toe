@@ -1,5 +1,6 @@
 import os
 import sys
+import time
 import random
 
 print("##### #####  ###      #####  ###   ###      ##### ##### #####") 
@@ -9,12 +10,11 @@ print("  #     #   #   #       #   #   # #   #       #   #   # #    ")
 print("  #   #####  ###        #   #   #  ###        #   ##### #####")  
 print()
 print("=============================================================")
-
-# #1 = index #14, #2 = index #18, #3 = index #22
-# #4 = index #62, #5 = index #66, #6 = index #70
-# #7 = index #110, #8 = index #114, #9 = index #118
-ttt_area = """
-   |   |   
+print()
+# #1 = index #13, #2 = index #17, #3 = index #21
+# #4 = index #61, #5 = index #65, #6 = index #69
+# #7 = index #109, #8 = index #113, #9 = index #117
+ttt_area = """   |   |   
  1 | 2 | 3 
    |   |   
 -----------
@@ -38,14 +38,28 @@ while choose_opponent:
     elif choose_opponent == "2":
         choose_computer = input("Choose computer difficulty\n1. Easy\n2. Medium(Not Available)\n3. Hard\n")
         while choose_computer:
+            # Easy Computer
             if choose_computer == "1":
-                game_done = False
-                while game_done == False:
+                game_ttt_area = ttt_area
+                while True:
                     print("=============================================================")
                     print()
-                    print(ttt_area)
+                    print(game_ttt_area)
+                    # Player 1 Turn
                     player1_choice = input("What area would you like to mark?\n")
-                    computer_choice = random.randint(1, 9)
+                    while player1_choice.isnumeric() == False and player1_choice == " ":
+                        print("No")
+                        player1_choice = input("Marked area or invalid input")
+                    add_mark = game_ttt_area.replace(player1_choice, "O")
+                    game_ttt_area = add_mark
+                    player1_choice = False
+                    if (game_ttt_area[13] == "O" and game_ttt_area[17] == "O" and game_ttt_area[21] == "O"):
+                        print("Player Won")
+                        break
+                    # Computer Turn
+                    computer_choice = str(random.randint(1, 9))
+                    add_mark = game_ttt_area.replace(computer_choice, "X")
+                    game_ttt_area = add_mark
                     print(f"computer marked area {computer_choice}")
         choose_opponent = False
     elif choose_opponent == "3":
@@ -53,5 +67,3 @@ while choose_opponent:
         choose_opponent = False
     else:
         choose_opponent = input("Not a valid choice\nInput \"1\" to choose another player as an opponent...\nInput \"2\" to choose a computer as an opponent...\nInput \"3\" to to exit the program...\n")
-
-print("This is just a test")
