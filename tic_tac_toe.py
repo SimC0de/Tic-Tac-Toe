@@ -1,21 +1,23 @@
 from ascii_arts import *
-
+from messages import *
                  
 print(header)      
-print(board)           
+print(numbered_board)           
 
-# Choose opponent through user inpute
-opponent_input = input("Choose your opponent:\n1. Player (PvP)\n2. Computer (PvC)\n")       
+# Choose opponent through user input
+opponent_input = input(message)       
 
-# Check if user is still choosing an opponent
-choose_opponent = True
-while(choose_opponent):
+# Checks the chosen opponent
+opponent = ""
+while(opponent_input):
     if(opponent_input == "1"):
         print("Fighting Player")
-        choose_opponent = False
+        opponent = "Player"
+        break
     elif(opponent_input == "2"):
         print("Fighting Computer")
-        choose_opponent = False
+        opponent = "Computer"
+        break
     else:
-        opponent_input = input("Please choose an opponent using the numbers that corresponds with them\n\nChoose your opponent:\n1. Player (PvP)\n2. Computer (PvC)\n")
+        opponent_input = input(warning_message)
                            
