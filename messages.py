@@ -8,6 +8,6 @@ Please choose a number that corresponds with your opponent (e.g. \"1\" for Playe
 {message}
 """
 
-player1_turn_message = "Player 1: "
-player2_turn_message = "Player 2: "
+player_1_turn_message = "Player 1: "
+player_2_turn_message = "Player 2: "
 turn_warning_message = "Must be an unchosen number block:\n"
